@@ -6,6 +6,7 @@ Resolve an AKA identifier to a location on the web.
 import json
 from flask import Flask, request, redirect, abort, jsonify
 from pathlib import Path
+from werkzeug.exceptions import NotAcceptable
 
 
 app = Flask(__name__)

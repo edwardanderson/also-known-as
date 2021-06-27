@@ -3,7 +3,7 @@
 Resolve an Also Known As identifier:
 
 ```bash
-curl -L https://alsoknownas.glitch.me/beleedf-lauw-tekening-ding
+curl -L https://alsoknownas.glitch.me/beleefd-lauw-tekening-ding
 ```
 
 Resolve a URI to Also Known As identifier:

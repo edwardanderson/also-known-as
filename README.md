@@ -10,5 +10,5 @@ Also Known As is an API and browser plug-in for minting portable, poetic names f
 
 | URL                                                                                           | Also Known As                                               |
 |-----------------------------------------------------------------------------------------------|-------------------------------------------------------------|
-| [Ligula mit Inschrift](https://katalog.landesmuseum.de/object/OTQvNzEy)                       | [nettes-rundes-silber-ding](https://alsoknownas.glitch.me/) |
-| [ Spuistraat 210 prent: bouwtekening](https://pid.uba.uva.nl/ark:/88238/b1990032751780205131) | [gezond-fel-tekening-ding](https://alsoknownas.glitch.me/)  |
+| [Ligula mit Inschrift](https://katalog.landesmuseum.de/object/OTQvNzEy)                       | [nettes-rundes-silber-ding](https://alsoknownas.glitch.me/nettes-rundes-silber-ding) |
+| [ Spuistraat 210 prent: bouwtekening](https://pid.uba.uva.nl/ark:/88238/b1990032751780205131) | [gezond-fel-tekening-ding](https://alsoknownas.glitch.me/gezond-fel-tekening-ding)  |

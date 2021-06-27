@@ -1,4 +1,8 @@
-const userAction = async () => {
+const fetchAKA = async () => {
+    console.log("fetchAKA")
+
+    // this next line currently gives an error:
+    // Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://alsoknownas.glitch.me/. (Reason: CORS header ‘Origin’ cannot be added).
     const response = await fetch('https://alsoknownas.glitch.me/', {
       method: 'POST',
       body: {
@@ -10,13 +14,17 @@ const userAction = async () => {
       }
     });
     const myJson = await response.json(); //extract JSON from the http response
+
+    console.log("awaiting...");
     // do something with myJson
-    console.log("test!!!")
     console.log(myJson)
-    const identifier = myJson['identifies'][0]['id'];
+    // const identifier = myJson['identifies'][0]['id'];
+
 
   }
-  
+
+console.log("hello!!!");
+fetchAKA();
 
 var header = document.createElement('p');
 header.textContent = 'this is where the identifier should go';

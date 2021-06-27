@@ -1,10 +1,10 @@
 '''
-Resolve Also Known As identifiers to locations on the web.
+Resolve an AKA identifier to a location on the web.
 '''
 
 
 import json
-from flask import Flask, request, redirect, abort
+from flask import Flask, request, redirect, abort, jsonify
 from pathlib import Path
 
 
@@ -14,27 +14,68 @@ app = Flask(__name__)
 @app.route('/aka2uri/<identifier>', methods=['GET'])
 def resolve(identifier=None):
     '''
-    Resolve an Also Known As identifier to URI.
+    Resolve an AKA identifier.
     '''
+
     try:
         target = mapping[identifier]
-        return redirect(target, code=302)    
     except KeyError:
         return abort(404)
+    
+    preferred_content = content_negotiation()
+    if preferred_content in ['application/ld+json', 'application/json']:
+        linked_art_object = {
+            "@context": "https://linked.art/ns/v1/linked-art.json",
+            "id": f"https://alsoknownas.glitch.me/{identifier}",
+            "type": "Identifier",
+            "content": identifier,
+            "identifies": [
+                {
+                    "id": target,
+                    "type": "HumanMadeObject"
+                }
+            ],
+            "classified_as": [
+                {
+                    "id": "http://vocab.getty.edu/aat/300435704",
+                    "type": "Type",
+                    "_label": "record identifiers"
+                }
+            ]
+        }
+        return jsonify(linked_art_object)
+    else:
+        return redirect(target, code=302)  
 
 
 @app.route('/', methods=['POST'])
 @app.route('/uri2aka', methods=['POST'])
 def resolve_uri():
-    '''
-    Resolve a URI to an Also Known As identifier.
-    '''
     try:
         uri = request.json['uri']
         aks_id = mapping[uri]
-        return aks_id
     except Exception:
         return abort(404)
+
+    preferred_content = content_negotiation()
+    if preferred_content == 'application/ld+json':
+        linked_art_object = {
+          
+        }
+    else:
+      return aks_id
+      
+      
+def content_negotiation():
+    supported_content_types = ['text/html', 'application/ld+json']
+    # Select which content type to provide.
+    preferred_content = request.accept_mimetypes.best_match(supported_content_types)
+    if preferred_content is None:
+        # Unacceptable.
+        description = '{} Supported entities are: {}'.format(
+            NotAcceptable.description, ', '.join(supported_content_types))
+        raise NotAcceptable(description)
+    return preferred_content
 
 
 if __name__ == '__main__':

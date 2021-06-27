@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "Also Known as",
+  "version": "1.0",
+  "description": "Portable poetic identifiers for cultural heritage objects.",
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.mozilla.org/*"],
+      "js": ["alsoKnownAs.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

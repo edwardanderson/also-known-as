@@ -42,8 +42,8 @@ def resolve_uri():
 
     preferred_content = content_negotiation()
     if preferred_content == 'application/ld+json':
-        # Implementation required?
-        pass
+        # Not implemented.
+        return abort(501)
     else:
       return aks_id
       

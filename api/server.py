@@ -37,7 +37,6 @@ def resolve_uri():
 if __name__ == '__main__':
     mapping = {}
     for mapping_file in Path('.').glob('mapping*.json'):
-        print(mapping_file)
         with open(str(mapping_file)) as data:
             local_mapping = json.load(data)
             for key in local_mapping:

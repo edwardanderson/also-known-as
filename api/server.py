@@ -1,5 +1,5 @@
 '''
-Resolve an AKA identifier to a location on the web.
+Resolve Also Known As identifiers to locations on the web.
 '''
 
 
@@ -14,7 +14,7 @@ app = Flask(__name__)
 @app.route('/aka2uri/<identifier>', methods=['GET'])
 def resolve(identifier=None):
     '''
-    Resolve an AKA identifier.
+    Resolve an Also Known As identifier to URI.
     '''
     try:
         target = mapping[identifier]
@@ -26,6 +26,9 @@ def resolve(identifier=None):
 @app.route('/', methods=['POST'])
 @app.route('/uri2aka', methods=['POST'])
 def resolve_uri():
+    '''
+    Resolve a URI to an Also Known As identifier.
+    '''
     try:
         uri = request.json['uri']
         aks_id = mapping[uri]

@@ -3,6 +3,7 @@
 Dereference an Also Known As identifier:
 
 ```bash
+# Dereference an identifier
 curl -L https://alsoknownas.glitch.me/beleefd-lauw-tekening-ding
 ```
 

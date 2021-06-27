@@ -8,9 +8,11 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://*.mozilla.org/*"],
-      "js": ["alsoKnownAs.js"],
-      "run_at": "document_start"
+      "matches": [
+          "https://katalog.landesmuseum.de/object/*",
+          "https://pid.uba.uva.nl/ark:/88238/*"
+        ],
+      "js": ["alsoKnownAs.js"]
     }
   ]
 }

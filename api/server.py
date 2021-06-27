@@ -30,7 +30,7 @@ def resolve_uri():
         uri = request.json['uri']
         aks_id = mapping[uri]
         return aks_id
-    exception Exception:
+    except Exception:
         return abort(404)
 
 
